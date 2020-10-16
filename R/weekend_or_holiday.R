@@ -7,6 +7,10 @@
 #' @examples
 #' weekend_or_holiday("2019-07-01")
 #' 
+#' 
+library(tidyverse)
+library(lubridate)
+
 weekend_or_holiday <- function(d) {
   
   

@@ -7,6 +7,9 @@
 #' @examples
 #' userid("478b8a07-cb2d-419f-8ea6-c4c14132bb92")
 
+library(tidyverse)
+library(valleybikeData)
+library(purrr)
 
 source("~/valleybike/R/weekend_or_holiday.R")
 

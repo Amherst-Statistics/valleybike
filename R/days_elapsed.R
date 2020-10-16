@@ -10,7 +10,6 @@
 #' 
 
 library(tidyverse)
-library(valleybikeData)
 library(lubridate)
 
 days_elapsed <- function(trip1, trip2){
