@@ -7,16 +7,12 @@
 #' 
 #' @examples
 #' days_elapsed("2019-07-01", "2019-07-30")
-#' 
-
-library(tidyverse)
-library(lubridate)
-
-days_elapsed <- function(trip1, trip2){
-  
-  if(year(trip1) == year(trip2)){
+#'
+#' @export
+days_elapsed <- function(trip1, trip2) {
+  if(year(trip1) == year(trip2)) {
     return(ceiling(difftime(time1 = date(trip2), time2 = date(trip1), units = "days")))
-  }else
-    return((ceiling(difftime(time1 = date(trip2), time2 = date(trip1), units = "days")))- 122)
-  
+  } else {
+    return((ceiling(difftime(time1 = date(trip2), time2 = date(trip1), units = "days"))) - 122)
+  }
 }
