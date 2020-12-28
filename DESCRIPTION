@@ -1,28 +1,30 @@
 Package: valleybike
 Title: ValleyBike.org Utility Functions
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
-    person(given = "Nicholas J.",
-           family = "Horton",
-           role = c("aut", "cre"),
-           email = "nhorton@amherst.edu")
-    person(given = "Maria-Cristiana",
-           family = "Girjau",
-           role = c("aut", "cre"),
-           email = "mgirjau21@amherst.edu")
-    person(given = "Jessica",
-           family = "Yu",
-           role = c("aut"),
-           email = "jeyu22@amherst.edu")
-    person(given = "Kenny",
-           family = "Chen",
-           role = c("aut"),
-           email = "kchen22@amherst.edu")
+    c(person(given = "Nicholas J.",
+             family = "Horton",
+             role = c("aut"),
+             email = "nhorton@amherst.edu"),
+      person(given = "Maria-Cristiana",
+             family = "Girjau",
+             role = c("aut", "cre"),
+             email = "mgirjau21@amherst.edu"),
+      person(given = "Jessica",
+             family = "Yu",
+             role = c("aut"),
+             email = "jeyu22@amherst.edu"),
+      person(given = "Kenny",
+             family = "Chen",
+             role = c("aut"),
+             email = "kchen22@amherst.edu"))
 Description: Utility functions to work with the ValleyBike.org data.
-License: GPL-3.0 + file LICENSE
+License: GPL-2 | GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: dplyr,
+         geosphere,
+         magrittr,
          valleybikeData
 Remotes: github::Amherst-Statistics/valleybikeData
 Roxygen: list(markdown = TRUE)
