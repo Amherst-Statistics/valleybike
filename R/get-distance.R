@@ -1,6 +1,6 @@
 #' Get trip distance
 #'
-#' Get the distance covered by a trip, as identified through its route ID.
+#' Get the distance covered by a trip.
 #'
 #' @title get_distance
 #'

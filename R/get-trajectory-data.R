@@ -1,6 +1,6 @@
 #' Get trajectory data
 #'
-#' Get the point-by-point trajectory data for a trip, as identified through its route ID.
+#' Get the point-by-point trajectory data for a trip.
 #'
 #' @title get_trajectory_data
 #'

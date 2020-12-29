@@ -1,6 +1,6 @@
 #' Get trip duration
 #'
-#' Get the duration of a trip, as identified through its route ID.
+#' Get the duration of a trip.
 #'
 #' @title get_duration
 #'

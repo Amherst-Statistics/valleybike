@@ -19,7 +19,7 @@ The approximate distance covered by the trip (in the measurement unit specified)
 Get trip distance
 }
 \details{
-Get the distance covered by a trip, as identified through its route ID.
+Get the distance covered by a trip.
 }
 \examples{
 \dontrun{

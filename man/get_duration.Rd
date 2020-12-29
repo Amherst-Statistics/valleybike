@@ -19,7 +19,7 @@ The approximate duration of the trip (in the measurement unit specified).
 Get trip duration
 }
 \details{
-Get the duration of a trip, as identified through its route ID.
+Get the duration of a trip.
 }
 \examples{
 \dontrun{

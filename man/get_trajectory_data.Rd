@@ -16,7 +16,7 @@ A data frame of trajectory data for the given route ID.
 Get trajectory data
 }
 \details{
-Get the point-by-point trajectory data for a trip, as identified through its route ID.
+Get the point-by-point trajectory data for a trip.
 }
 \examples{
 \dontrun{
