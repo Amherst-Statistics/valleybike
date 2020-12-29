@@ -24,6 +24,9 @@ Encoding: UTF-8
 LazyData: true
 Imports: dplyr,
          geosphere,
+         ggmap,
+         ggplot2,
+         lubridate,
          magrittr,
          valleybikeData
 Remotes: github::Amherst-Statistics/valleybikeData
