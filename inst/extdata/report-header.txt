@@ -1,0 +1,30 @@
+author: "DSC-WAV Fall 2020 Cohort"
+date: "`r format(Sys.Date(), format = '%d %B %Y')`"
+output:
+  pdf_document:
+    number_sections: true
+toc: true
+urlcolor: blue
+classoption: table
+header-includes:
+  - \usepackage{booktabs, float}
+---
+
+```{r setup, include=FALSE}
+options(knitr.kable.NA = "**")
+```
+
+\newpage
+# Introduction
+
+This report is a collation of tables displaying various station summaries for each year that ValleyBike has been in service. These summary tables, sorted chronologically by year, aim to give a brief summary of bike trips within a community.
+
+The first table (for each year) shows when the stations in a specific community first came online that year, and when they went offline. These tables are particularly useful for ValleyBike's first year, namely 2018, when stations were inaugurated at different times. It is important to note that stations might technically have been online for some time before the first trip or after the last trip, but we considered the date of the first/last recorded trip at each station to mark the moment when it came online/offline.
+
+The second table shows trip summaries by starting station, specifically the number of trips starting at that station, the proportion of short trips (i.e., trips shorter than a minute), the proportion of long trips (i.e., trips longer than 4 hours), the proportion of return trips (i.e., trips back to the same station), and the proportion of trips that didn't end at a station (since the secondary lock mechanism allows bikes to stop away from a station). The proportion of return trips can give us a sense of the types of the riders at each station: if this proportion is high, it might be an indicator that the ride was for recreational purposes rather than for a specific errand.
+
+The next set of tables show the top 10 end stations for each starting station within the community. The included metrics display summary statistics for bike trip duration, such as the mean, median, and standard deviation. Note that the trips have been filtered such that their duration is between 1 minute and 4 hours. The symbol ** indicates a missing value, so when appearing instead of a station name it might indicate that bikes were started or stopped away from a station (once again through the secondary lock mechanism). These tables show the relationships between different stations and how long it takes to travel to each of them, on average. Differences in ride duration might also differentiate between recreational and non-recreational usage.
+
+The last table shows the top 10 pairs of station (excluding same-station pairs), as well as summary statistics for bike trip duration, such as the mean, median, and standard deviation. Once again, note that the trips have been filtered such that their duration is between 1 minute and 4 hours. The time taken to get from one station to another might be indicative of usage patters: a short duration can indicate that the trip is not recreational, and that bike travel was used as an efficient way of getting from one place to another.
+
+All of these station summaries utilized the `valleybikeData` package. More details about this package and the datasets it provides can be found [here](https://github.com/Amherst-Statistics/valleybikeData).
