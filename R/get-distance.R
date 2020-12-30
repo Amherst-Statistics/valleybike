@@ -28,14 +28,14 @@ get_distance <- function(route_id, unit = "meters") {
   coord_columns <- c("latitude", "longitude")
 
   before <- trajectory_data %>%
-    head(-1) %>%
+    utils::head(-1) %>%
     dplyr::select(coord_columns) %>%
     dplyr::rowwise() %>%
     dplyr::mutate(x = list(c(latitude, longitude))) %>%
     dplyr::pull(x)
 
   after <- trajectory_data %>%
-    tail(-1) %>%
+    utils::tail(-1) %>%
     dplyr::select(coord_columns) %>%
     dplyr::rowwise() %>%
     dplyr::mutate(y = list(c(latitude, longitude))) %>%

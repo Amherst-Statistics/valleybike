@@ -23,12 +23,15 @@ License: GPL-2 | GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: dplyr,
+         emojifont,
          geosphere,
          ggmap,
          ggplot2,
          lubridate,
          magrittr,
-         valleybikeData
+         utils,
+         valleybikeData,
+         viridis
 Remotes: github::Amherst-Statistics/valleybikeData
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
