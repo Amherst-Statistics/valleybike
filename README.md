@@ -27,18 +27,19 @@ library(valleybike)
 The package includes a variety of utility functions for working with the
 ValleyBike data:
 
--   `get_distance` (get the distance covered by a trip)
--   `get_duration` (get the duration of a trip)
--   `get_summary_report` (get a .pdf summary report for a specific town)
--   `get_trajectory_data` (get the point-by-point trajectory data for a
+  - `get_distance` (get the distance covered by a trip)
+  - `get_duration` (get the duration of a trip)
+  - `get_summary_report` (get a .pdf summary report for a specific town)
+  - `get_trajectory_data` (get the point-by-point trajectory data for a
     trip)
--   `identify_trips` (identify the route ID of a trip about which
+  - `identify_trips` (identify the route ID of a trip about which
     details are known)
--   `plot_trip` (plot a trip on the map)
--   `weekend_or_holiday` (check whether a trip took place during a
+  - `plot_trip` (plot a trip on the map)
+  - `weekend_or_holiday` (check whether a trip took place during a
     weekend or a holiday)
--   `weekend_or_holiday_trips` (get the number of weekend or holiday
+  - `weekend_or_holiday_trips` (get the number of weekend or holiday
     trips undertaken by a user)
 
 For more details on what these functions do and how to use them, please
-see the [package manual]().
+see the [package
+manual](https://github.com/Amherst-Statistics/valleybike/blob/main/valleybike_0.0.1.pdf).
