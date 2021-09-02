@@ -11,7 +11,7 @@ output: github_document
 
 [ValleyBike.org](https://www.valleybike.org/) utility functions.
 
-To be used in conjunction with the [`valleybikeData` package]((https://github.com/Amherst-Statistics/valleybikeData).
+To be used in conjunction with the [`valleybikeData` package](https://github.com/Amherst-Statistics/valleybikeData).
 
 ## Installation
 
