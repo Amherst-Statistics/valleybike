@@ -37,7 +37,7 @@ Imports: dplyr,
          utils,
          valleybikeData,
          viridis
-Remotes: github::Amherst-Statistics/valleybikeData
+Remotes: Amherst-Statistics/valleybikeData
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
