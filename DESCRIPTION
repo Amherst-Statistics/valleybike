@@ -37,7 +37,7 @@ Imports: dplyr,
          utils,
          valleybikeData,
          viridis
-Remotes: Amherst-Statistics/valleybikeData
+Remotes: Amherst-Statistics/valleybikeData,
          dkahle/ggmap
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
