@@ -24,7 +24,7 @@ library(valleybike)
 
 ## Functions
 
-The `valleybike` package includes a variety of utility functions for working with the ValleyBike data:
+The `valleybike` package includes a variety of utility functions for working with data from ValleyBike:
 
 - `get_distance` (get the distance covered by a trip)
 - `get_duration` (get the duration of a trip)
