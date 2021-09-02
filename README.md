@@ -1,17 +1,18 @@
 
-# valleybike <img src="man/figures/logo.png" title="logo created with hexSticker" width="160px" align="right"/>
+# valleybike <img src="man/figures/logo.png" title="Logo created with hexSticker" width="160px" align="right"/>
 
 <!-- badges: start -->
 
 [![R build
 status](https://github.com/Amherst-Statistics/valleybike/workflows/R-CMD-check/badge.svg)](https://github.com/Amherst-Statistics/valleybike/actions)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
-[ValleyBike.org](https://www.valleybike.org/) utility functions. To be
-used in conjunction with the `valleybikeData` package (more details
-[here](https://github.com/Amherst-Statistics/valleybikeData)).
+[ValleyBike.org](https://www.valleybike.org/) utility functions.
+
+To be used in conjunction with the \[`valleybikeData`
+package\]((<https://github.com/Amherst-Statistics/valleybikeData>).
 
 ## Installation
 
@@ -24,8 +25,8 @@ library(valleybike)
 
 ## Functions
 
-The package includes a variety of utility functions for working with the
-ValleyBike data:
+The `valleybike` package includes a variety of utility functions for
+working with the ValleyBike data:
 
   - `get_distance` (get the distance covered by a trip)
   - `get_duration` (get the duration of a trip)
@@ -40,6 +41,6 @@ ValleyBike data:
   - `weekend_or_holiday_trips` (get the number of weekend or holiday
     trips undertaken by a user)
 
-For more details on what these functions do and how to use them, please
-see the [package
-manual](https://github.com/Amherst-Statistics/valleybike/blob/main/valleybike_0.0.1.pdf).
+For more details on the functions included in the package, please see
+the
+[manual](https://github.com/Amherst-Statistics/valleybike/blob/main/valleybike_1.0.0.pdf).
