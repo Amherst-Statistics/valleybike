@@ -16,7 +16,9 @@
 #' @export
 weekend_or_holiday <- function(route_id) {
 
-  start_date <- valleybikeData::trips %>%
+  utils::data("trips", package = "valleybikeData", envir = environment())
+
+  start_date <- trips %>%
     dplyr::filter(route_id == !!route_id) %>%
     dplyr::pull(start_time) %>%
     format(format = "%Y-%m-%d")
@@ -56,7 +58,9 @@ weekend_or_holiday <- function(route_id) {
 #' @export
 weekend_or_holiday_trips <- function(user_id) {
 
-  num_trips <- valleybikeData::trips %>%
+  utils::data("trips", package = "valleybikeData", envir = environment())
+
+  num_trips <- trips %>%
     dplyr::filter(user_id == !!user_id) %>%
     dplyr::rowwise() %>%
     dplyr::mutate(weekend_or_holiday = weekend_or_holiday(route_id)) %>%

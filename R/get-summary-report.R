@@ -1,27 +1,16 @@
 # =================================================================================================
-# ADD START AND END CITIES TO TRIPS DATASET
-# =================================================================================================
-
-.stations_clean <- valleybikeData::stations %>%
-  dplyr::select(name, city)
-
-.trips <- valleybikeData::trips %>%
-  dplyr::left_join(.stations_clean, by = c("start_station" = "name")) %>%
-  dplyr::rename(start_city = city) %>%
-  dplyr::left_join(.stations_clean, by = c("end_station" = "name")) %>%
-  dplyr::rename(end_city = city)
-
-# =================================================================================================
 # WHEN STATIONS WENT ONLINE AND OFFLINE
 # =================================================================================================
 
-.summarize_online_offline <- function(city, year) {
+.summarize_online_offline <- function(city, year, trips_clean) {
 
-  city_stations <- valleybikeData::stations %>%
+  utils::data("stations", package = "valleybikeData", envir = environment())
+
+  city_stations <- stations %>%
     dplyr::filter(city == !!city) %>%
     dplyr::pull(name)
 
-  summary <- .trips %>%
+  summary <- trips_clean %>%
     dplyr::filter(
       start_city == city | end_city == city,
       format(start_time, "%Y") == year
@@ -57,9 +46,9 @@
 # TRIP SUMMARIES BY STATION
 # =================================================================================================
 
-.summarize_trips <- function(city, year, min_duration = 60, max_duration = 14400) {
+.summarize_trips <- function(city, year, trips_clean, min_duration = 60, max_duration = 14400) {
 
-  summary <- .trips %>%
+  summary <- trips_clean %>%
     dplyr::filter(
       start_city == city,
       format(start_time, "%Y") == year
@@ -116,15 +105,17 @@
 # SUMMARY OF END STATIONS
 # =================================================================================================
 
-.summarize_end_stations <- function(city, year, min_duration = 60, max_duration = 14400) {
+.summarize_end_stations <- function(city, year, trips_clean, min_duration = 60, max_duration = 14400) {
 
-  city_stations <- valleybikeData::stations %>%
+  utils::data("stations", package = "valleybikeData", envir = environment())
+
+  city_stations <- stations %>%
     dplyr::filter(city == !!city) %>%
     dplyr::pull(name)
 
   summarize_one_station <- function(start_station) {
 
-    summary <- .trips %>%
+    summary <- trips_clean %>%
       dplyr::filter(
         start_station == !!start_station,
         format(start_time, "%Y") == year,
@@ -179,9 +170,9 @@
 # SUMMARY OF TOP 10 PAIRS OF STATIONS
 # =================================================================================================
 
-.summarize_station_pairs <- function(city, year, min_duration = 60, max_duration = 14400) {
+.summarize_station_pairs <- function(city, year, trips_clean, min_duration = 60, max_duration = 14400) {
 
-  summary <- .trips %>%
+  summary <- trips_clean %>%
     dplyr::filter(
       start_city == city,
       end_city == city,
@@ -249,8 +240,22 @@
 #' @export
 get_summary_report <- function(city, filename, path = ".", overwrite = FALSE) {
 
+  utils::data("trips", package = "valleybikeData", envir = environment())
+  utils::data("stations", package = "valleybikeData", envir = environment())
+
+  stations_clean <- stations %>%
+    dplyr::select(name, city)
+
+  # add start and end stations to the trips dataset
+  trips_clean <- trips %>%
+    dplyr::left_join(stations_clean, by = c("start_station" = "name")) %>%
+    dplyr::rename(start_city = city) %>%
+    dplyr::left_join(stations_clean, by = c("end_station" = "name")) %>%
+    dplyr::rename(end_city = city)
+
   cities <- c("Amherst", "Springfield", "Easthampton", "Northampton", "Holyoke", "South Hadley")
-  years <- valleybikeData::trips$start_time %>%
+  years <- trips %>%
+    dplyr::pull(start_time) %>%
     format(format = "%Y") %>%
     unique()
 
@@ -261,6 +266,8 @@ get_summary_report <- function(city, filename, path = ".", overwrite = FALSE) {
   if (missing(filename)) {
     city_no_whitespace <- gsub(" ", "-", tolower(city))
     filename <- paste0(city_no_whitespace, "-station-report.Rmd")
+  } else {
+    filename <- stringr::str_replace(filename, patter = "\\.pdf$", replacement = ".Rmd")
   }
 
   destination_file <- file.path(path, filename)
@@ -285,7 +292,7 @@ get_summary_report <- function(city, filename, path = ".", overwrite = FALSE) {
 
     cat("\n\n## Online and Offline Dates by Station\n\n", file = destination_file, append = TRUE)
 
-    online_offline_summary <- .summarize_online_offline(city, year)
+    online_offline_summary <- .summarize_online_offline(city, year, trips_clean)
     cat(online_offline_summary, file = destination_file, append = TRUE)
 
     cat("\\newpage", file = destination_file, append = TRUE)
@@ -294,7 +301,8 @@ get_summary_report <- function(city, filename, path = ".", overwrite = FALSE) {
 
     cat("\n\n## Trip Summaries by Station\n\n", file = destination_file, append = TRUE)
 
-    trips_summary <- .summarize_trips(city, year)
+    trips_summary <- .summarize_trips(city, year, trips_clean)
+
     cat(trips_summary, file = destination_file, append = TRUE)
 
     cat("\\newpage", file = destination_file, append = TRUE)
@@ -303,7 +311,7 @@ get_summary_report <- function(city, filename, path = ".", overwrite = FALSE) {
 
     cat("\n\n## Top Destinations by Start Station\n\n", file = destination_file, append = TRUE)
 
-    end_stations_summaries <- .summarize_end_stations(city, year)
+    end_stations_summaries <- .summarize_end_stations(city, year, trips_clean)
     lapply(end_stations_summaries, function(summary) {
       cat(summary, file = destination_file, append = TRUE)
     })
@@ -314,11 +322,13 @@ get_summary_report <- function(city, filename, path = ".", overwrite = FALSE) {
 
     cat("\n\n## Top 10 Station Pairs\n\n", file = destination_file, append = TRUE)
 
-    station_pairs_summary <- .summarize_station_pairs(city, year)
+    station_pairs_summary <- .summarize_station_pairs(city, year, trips_clean)
     cat(station_pairs_summary, file = destination_file, append = TRUE)
   }
 
   lapply(years, output_summaries)
 
   rmarkdown::render(destination_file, output_format = "pdf_document")
+
+  invisible(file.remove(destination_file))
 }

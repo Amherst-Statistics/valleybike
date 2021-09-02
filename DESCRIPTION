@@ -1,6 +1,6 @@
 Package: valleybike
 Title: ValleyBike.org Utility Functions
-Version: 0.0.1
+Version: 1.0.0
 Authors@R: 
     c(person(given = "Nicholas J.",
              family = "Horton",
@@ -9,7 +9,7 @@ Authors@R:
       person(given = "Maria-Cristiana",
              family = "Girjau",
              role = c("aut", "cre"),
-             email = "mgirjau21@amherst.edu"),
+             email = "mg4345@columbia.edu"),
       person(given = "Jessica",
              family = "Yu",
              role = c("aut"),
@@ -21,7 +21,6 @@ Authors@R:
 Description: Utility functions to work with the ValleyBike.org data.
 License: GPL-2 | GPL-3
 Encoding: UTF-8
-LazyData: true
 Imports: dplyr,
          emojifont,
          geosphere,
@@ -33,12 +32,13 @@ Imports: dplyr,
          magrittr,
          rmarkdown,
          stats,
+         stringr,
          tidyr,
          utils,
          valleybikeData,
          viridis
 Remotes: github::Amherst-Statistics/valleybikeData
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Depends: 
     R (>= 2.10)

@@ -16,7 +16,9 @@
 #' @export
 get_trajectory_data <- function(route_id) {
 
-  if (!(route_id %in% valleybikeData::trips$route_id)) {
+  utils::data("trips", package = "valleybikeData", envir = environment())
+
+  if (!(route_id %in% trips$route_id)) {
     stop("Invalid route ID \"", route_id, "\".")
   }
 

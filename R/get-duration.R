@@ -18,7 +18,9 @@
 #' @export
 get_duration <- function(route_id, unit = "minutes") {
 
-  if (!(route_id %in% valleybikeData::trips$route_id)) {
+  utils::data("trips", package = "valleybikeData", envir = environment())
+
+  if (!(route_id %in% trips$route_id)) {
     stop("Invalid route ID \"", route_id, "\".")
   }
 
@@ -27,7 +29,7 @@ get_duration <- function(route_id, unit = "minutes") {
          "\". Must be one of: \"seconds\", \"minutes\", \"hours\".")
   }
 
-  duration_seconds <- valleybikeData::trips %>%
+  duration_seconds <- trips %>%
     dplyr::filter(route_id == !!route_id) %>%
     dplyr::pull(duration)
 

@@ -19,13 +19,13 @@
 #' @export
 identify_trips <- function(date = NULL, start_station = NULL, end_station = NULL) {
 
-
-
   if (is.null(date) && is.null(start_station) && is.null(end_station)) {
     stop("At least one argument must be provided.")
   }
 
-  route_ids <- valleybikeData::trips %>%
+  utils::data("trips", package = "valleybikeData", envir = environment())
+
+  route_ids <- trips %>%
     {if (!is.null(date)) dplyr::filter(., format(start_time, format = "%Y-%m-%d") == date) else .} %>%
     {if (!is.null(start_station)) dplyr::filter(., start_station == !!start_station) else .} %>%
     {if (!is.null(end_station)) dplyr::filter(., end_station == !!end_station) else .} %>%
