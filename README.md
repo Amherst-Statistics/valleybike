@@ -11,8 +11,8 @@ stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)](http
 
 [ValleyBike.org](https://www.valleybike.org/) utility functions.
 
-To be used in conjunction with the \[`valleybikeData`
-package\]((<https://github.com/Amherst-Statistics/valleybikeData>).
+To be used in conjunction with the [`valleybikeData`
+package](https://github.com/Amherst-Statistics/valleybikeData).
 
 ## Installation
 
@@ -26,7 +26,7 @@ library(valleybike)
 ## Functions
 
 The `valleybike` package includes a variety of utility functions for
-working with the ValleyBike data:
+working with data from ValleyBike:
 
   - `get_distance` (get the distance covered by a trip)
   - `get_duration` (get the duration of a trip)
