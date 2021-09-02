@@ -6,7 +6,7 @@ output: github_document
 
 <!-- badges: start -->
 [![R build status](https://github.com/Amherst-Statistics/valleybike/workflows/R-CMD-check/badge.svg)](https://github.com/Amherst-Statistics/valleybike/actions)
-[![Lifecycle: maturing](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Lifecycle: stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 [ValleyBike.org](https://www.valleybike.org/) utility functions.
@@ -24,7 +24,7 @@ library(valleybike)
 
 ## Functions
 
-The package includes a variety of utility functions for working with the ValleyBike data:
+The `valleybike` package includes a variety of utility functions for working with the ValleyBike data:
 
 - `get_distance` (get the distance covered by a trip)
 - `get_duration` (get the duration of a trip)
