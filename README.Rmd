@@ -35,4 +35,4 @@ The `valleybike` package includes a variety of utility functions for working wit
 - `weekend_or_holiday` (check whether a trip took place during a weekend or a holiday)
 - `weekend_or_holiday_trips` (get the number of weekend or holiday trips undertaken by a user)
 
-For more details on what these functions do and how to use them, please see the [manual](https://github.com/Amherst-Statistics/valleybike/blob/main/valleybike_1.0.0.pdf).
+For more details on the functions included in the package, please see the [manual](https://github.com/Amherst-Statistics/valleybike/blob/main/valleybike_1.0.0.pdf).
